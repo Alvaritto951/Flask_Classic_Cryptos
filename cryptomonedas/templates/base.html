@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/pico.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Mis Cryptomonedas</title>
+</head>
+<header class="cabecera" id = header><span id="span_header">CRYPTOS ÁLVARO J. LÓPEZ</span></header>
+<body>
+    <nav aria-label="breadcrumb">
+    {% if cabecera == 'index.html' %}
+    <nav>
+        <span>Inicio</span> 
+        /
+        <a href="/purchase" class="container">Compras</a>
+        /
+        <a href="/status" class = "container">Estado</a>
+    </nav>
+    {% endif %}
+
+    {% if cabecera == 'purchase.html' %}
+    <nav>
+        <a href="/" class = "container">Inicio</a>
+        /
+        <span>Compras</span>
+        /
+        <a href="/status" class = "container">Estado</a>
+    </nav>
+    {% endif %}
+
+    {% if cabecera == 'status.html' %}
+    <nav>
+        <a href="/" class = "container">Inicio</a>
+        /
+        <a href="/purchase" class="container">Compras</a>
+        /
+        <span>Estado</span>
+    </nav>
+    {% endif %}
+    </nav>
+
+    <section class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+        <article class="messages">
+            {% for msg in messages %}
+            <p class='error'>{{ msg }}</p>
+            {% endfor %}
+        </article>
+        {% endif %}
+        {% endwith %}
+
+    {% block content %}{% endblock %}
+    </section>
+    <footer class = cabecera id = footer>
+        
+        <span id = span_footer>&copy; 2022 - AJLM Todos los derechos reservados</span>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>MOVIMIENTOS</h1>
+
+<table role="grid" id = "movimientos">
+    <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Moneda_From</th>
+          <th>Cantidad_From</th>
+          <th>Moneda_To</th>
+          <th>Cantidad_to</th>
+          <th>Precio Unitario</th>
+        
+    </tr>
+  
+  </thead>
+ 
+  <tbody>
+      
+      {% for movement in data %}
+      <tr>
+          <td>{{ movement.Fecha }}</td>
+          <td>{{ movement.Hora}}</td>
+          <td>{{ movement.Moneda_from }}</td>
+          <td>{{ movement.Cantidad_from ~ " " ~ movement.Moneda_from }}</td>
+          <td>{{ movement.Moneda_to }}</td>
+          <td>{{ "%.8f" | format (movement.Cantidad_to) ~ " " ~ movement.Moneda_to }}</td>
+          <td>{{ "%.8f" | format (movement.PU) ~ " " ~ movement.Moneda_from}}</td>
+          
+      </tr>
+      {% endfor %}
+     
+  </tbody>
+</table> 
+{% if data == [] %}
+<p id="SM"><strong>SIN MOVIMIENTOS</strong></p>
+{% endif %}
+
+{% endblock %}  

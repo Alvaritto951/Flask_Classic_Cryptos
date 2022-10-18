@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>COMPRA DE CRIPTOS</h1>
+<h1>COMPRA DE CRIPTOMONEDAS</h1>
 
 <form class = conter action="/purchase" method="post">
     {{ formulario.csrf_token }}
@@ -15,14 +15,14 @@
     {% endif %}
 
     {{ formulario.inputCantidad.label }}
-    {{ formulario.inputCantidad (placeholder = "Introduce cantidad Cryptomonedas a comprar")}}
+    {{ formulario.inputCantidad (placeholder = "Introduce la cantidad de Cryptomonedas que quieres comprar")}}
     {% if formulario.inputCantidad.errors %}
         {% for error in formulario.inputCantidad.errors %}
         <p>{{ error }}</p>
         {% endfor %}
     {% endif %}
 
-    <a href="/purchase" data-tooltip="Pulsa para calcular precio" data-placement="bottom">
+    <a href="/purchase" data-tooltip="Pulsa para calcular el precio" data-placement="bottom">
         <span class="material-symbols-outlined">
         {{ formulario.submitCalcular }}
         </span>
@@ -36,8 +36,8 @@
         {% endfor %}
     {% endif %}
    
-   <p>Q: {{ resultado }}</p>
-   <p>P.U: {{ Tasa }}</p>
+   <p>Importe: {{ resultado }}</p>
+   <p>Precio Unitario: {{ Tasa }}</p>
 
    <a href="/purchase" data-tooltip="Pulsa para hacer la compra" data-placement="bottom">
     <span class="material-symbols-outlined">

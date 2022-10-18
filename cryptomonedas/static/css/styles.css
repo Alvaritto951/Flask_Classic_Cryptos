@@ -85,3 +85,16 @@ nav{
     text-align: center;
     font-size: 2em;
 }
+
+
+#ganancia {
+    color: green;
+}
+
+#perdida {
+    color: red
+}
+
+#igual {
+    color: orange;
+}

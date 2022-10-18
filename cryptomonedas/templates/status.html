@@ -14,6 +14,20 @@
 
 <p>Valor actual: {{ vAct }}</p>
 
+{% if ganancia > 0 %}
+
+<p> Ganancia: <span id = ganancia>{{ ganancia }}</span></p>
+
+{% elif ganancia == 0 %}
+<p> Ganancia: <span id = igual>{{ ganancia }}</span></p>
+
+{% else %}
+<p> Ganancia: <span id = perdida>{{ ganancia }}</span></p>
+
+
+{% endif %}
+
+
 <a href="/" data-tooltip="Pulsa para ir a pagina de inicio de tus movimientos" data-placement="bottom">Volver</a>
 
 {% endblock %}

@@ -1,7 +1,10 @@
+from wtforms import HiddenField
 import sqlite3
 from config import *
 import requests
 from datetime import *
+from cryptomonedas.routes import *
+
 def filas_to_diccionario(filas, columnas):
 
     resultado = []
@@ -26,7 +29,6 @@ def select_all():
 
 
 def insert(registro):
-  
     conn = sqlite3.connect(ORIGIN_DATA)
     cur = conn.cursor()
     cur.execute("INSERT INTO movements (Fecha, Hora, Moneda_from, Cantidad_from, Moneda_to, cantidad_to) values(?,?,?,?,?,?)", registro)
@@ -39,7 +41,7 @@ def peticion_crypto(moneda_from_data, moneda_to_data, apikey):
     return resultado
 
 def invertido():
-    conn= sqlite3.connect(ORIGIN_DATA)
+    conn = sqlite3.connect(ORIGIN_DATA)
     cur = conn.cursor()
     cur.execute("SELECT SUM(Cantidad_from) as Cantidad_from FROM movements WHERE Moneda_from = 'EUR'")
     result = filas_to_diccionario(cur.fetchall(), cur.description)
@@ -53,6 +55,8 @@ def recuperado():
     result = filas_to_diccionario(cur.fetchall(), cur.description)
     conn.close()
     return result
+
+
 
 def valorCompra():
     conn= sqlite3.connect(ORIGIN_DATA)
@@ -87,7 +91,7 @@ def valorActual():
     return result 
 
 def cartera(moneda):
-    consulta = f"SELECT ((SELECT SUM(Cantidad_to) FROM movements WHERE Moneda_to = '{moneda}') - (SELECT SUM(Cantidad_from) FROM movements WHERE Moneda_from = '{moneda}')) AS {moneda}"
+    consulta = f"SELECT ((SELECT (case when (SUM(Cantidad_to)) is null then 0 else SUM(Cantidad_to) end) as tot FROM movements WHERE Moneda_to = '{moneda}') - (SELECT (case when (SUM(Cantidad_from)) is null then 0 else SUM(Cantidad_from) end) as ee FROM movements WHERE Moneda_from = '{moneda}')) AS {moneda}"
     
     conn= sqlite3.connect(ORIGIN_DATA)
     cur = conn.cursor()
@@ -97,7 +101,6 @@ def cartera(moneda):
     return result  
 
 def cartera2(moneda, valor):
-    #consulta = f"SELECT ((select (case when Moneda_to is null then 0 else sum(Cantidad_to) end) as holaa from movements where Moneda_to = '{moneda}') - (select (case when Moneda_from is null then {valor} else sum(Cantidad_from) end) as hola from movements where Moneda_from = '{moneda}')) as tt"
     consulta = f"SELECT ((SELECT (case when (SUM(Cantidad_to)) is null then 0 else SUM(Cantidad_to) end) as tot FROM movements WHERE Moneda_to = '{moneda}') - (SELECT (case when (SUM(Cantidad_from)) is null then 0 else SUM(Cantidad_from) end) as ee FROM movements WHERE Moneda_from = '{moneda}')) AS {moneda}"
 
 

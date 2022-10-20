@@ -18,7 +18,7 @@ Para consultar y recuperar el valor de las cryptomonedas, se utiliza la API de C
     - En apikey indicar tu clave personal e intransferible
     - En el SECRET_KEY poner tu Secret Key
 
-### EJEMPLOS 🖥️🔐
+### EJEMPLOS DE KEY🖥️🔐
 ```
 apikey = "45gt76u67ii8i"
 
@@ -32,7 +32,6 @@ SECRET_KEY = "4rfEw65hg45y6h4g4"
 - Dentro del fichero, en el apartado `FLASK_DEBUG` indicar `True` o `False`
 
 #### Instalacion de dependencias 🛠️🖥️
-#TODO: ¿Es necesario crear el entorno virtual?
 
 - Ejecutar `pip install -r requirements.txt`
 

@@ -103,7 +103,7 @@ def validador():
     valorMonedaTo = request.values.get('moneda_to') #Valor de valorMonedaTo
     valorCantidad2 = HiddenField #Valor de valorCantidad2, es un campo oculto. Es el que te obliga a que le des a aceptar una vez hayas calculado la tasa y te impide seguir.
 
-    if registros == [] and valorMonedaFrom != "EUR": #Si los registros están vacíos y la mondea es distinta a €
+    if registros == [] and valorMonedaFrom != "EUR": #Si los registros están vacíos y la moneda es distinta a €
         show_error = flash("En la primera compra de Cryptomonedas sólo pueden utilizarse Euros") #Lanza el mensaje de error
         error.append(show_error) #Añádelo
         return error #Devuélve el error
@@ -114,7 +114,7 @@ def validador():
         return error
 
     if valorCantidad2._value != valorCantidad: #Si el valor de valorCantidad se modifica o no se calcula
-        show_error = flash("Es obligatorio calcular el valor en el botón 'Calculadora' antes de comprar")
+        show_error = flash("Es obligatorio obtener el valor en el botón 'Calcular' antes de comprar")
         error.append(show_error)
         return error
 

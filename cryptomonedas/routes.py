@@ -23,10 +23,10 @@ def index():
 @app.route("/purchase", methods=["GET", "POST"])
 def comprar():
     moneda = Moneda()
-    registros = select_all()
+    #registros = select_all()
     valorCantidad = request.values.get("inputCantidad") 
-    valorMonedaFrom = request.values.get('moneda_from')
-    valorMonedaTo = request.values.get('moneda_to')
+    #valorMonedaFrom = request.values.get('moneda_from')
+    #valorMonedaTo = request.values.get('moneda_to')
     valorCantidad2 = HiddenField
     if request.method == "GET":
         return render_template("/purchase.html", PageTitle = "Comprar", formulario = moneda, cabecera = 'purchase.html', cantidad = "input")

@@ -60,7 +60,7 @@ def comprar():
                         return redirect (url_for('comprar'))
                     
 
-                    if moneda.validate():
+                    if moneda.validate(): #Viene de FlaskForm
                         resultado = peticion_crypto(moneda.moneda_from.data, moneda.moneda_to.data, apikey)
                         total = resultado['rate'] * float(valorCantidad)
                         insert([datetime.now().date().isoformat(), str(datetime.now().time().isoformat())[:8], resultado["asset_id_base"], valorCantidad, resultado["asset_id_quote"], total])

@@ -58,8 +58,8 @@ def recuperado():
 
 
 def cartera(moneda):
-    consulta = f"SELECT ((SELECT (case when (SUM(Cantidad_to)) is null then 0 else SUM(Cantidad_to) end) as tot FROM movements WHERE Moneda_to = '{moneda}') - (SELECT (case when (SUM(Cantidad_from)) is null then 0 else SUM(Cantidad_from) end) as ee FROM movements WHERE Moneda_from = '{moneda}')) AS {moneda}"
-    
+    consulta = f"SELECT ((SELECT (case when (SUM(Cantidad_to)) is null then 0 else SUM(Cantidad_to) end) as COMPRAR FROM movements WHERE Moneda_to = '{moneda}') - (SELECT (case when (SUM(Cantidad_from)) is null then 0 else SUM(Cantidad_from) end) as GASTAR FROM movements WHERE Moneda_from = '{moneda}')) AS {moneda}"
+    #Calcular la cantidad total de cada tipo de moneda (EUR o BTC o ETH...) que tienes
     conn= sqlite3.connect(ORIGIN_DATA)
     cur = conn.cursor()
     cur.execute(consulta)
@@ -120,7 +120,7 @@ def validador():
 
     monedero = cartera(valorMonedaFrom)
     if (valorMonedaFrom != 'EUR' and monedero[0][valorMonedaFrom] < float(valorCantidad)):
-        #Si el valor de la moneda es distinto de € y el monedero (que lo calcula cartera) es más pequeño que el valor que se indica
+        #Si el valor de la moneda a gastar es distinto de € y el monedero (que lo calcula cartera) es más pequeño que el valor que se indica
         show_error = flash(f"No hay saldo suficiente de la moneda {valorMonedaFrom}") #Indica que no hay dinero
         error.append(show_error)
         return error

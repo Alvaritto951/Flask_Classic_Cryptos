@@ -22,7 +22,7 @@
         {% endfor %}
     {% endif %}
 
-    <a href="/purchase" data-tooltip="Pulsa para calcular el precio" data-placement="bottom">
+    <a id="Calculate_Calcular" href="/purchase" data-tooltip="Pulsa para calcular el precio" data-placement="bottom">
         <span class="material-symbols-outlined">
         {{ formulario.submitCalcular }}
         </span>
@@ -39,7 +39,7 @@
    <p>Importe: {{ resultado }}</p>
    <p>Precio Unitario: {{ Tasa }}</p>
 
-   <a href="/purchase" data-tooltip="Pulsa para hacer la compra" data-placement="bottom">
+   <a id="Calculate_Calcular" href="/purchase" data-tooltip="Pulsa para hacer la compra" data-placement="bottom">
     <span class="material-symbols-outlined">
    {{ formulario.submitCompra }}
     </span>

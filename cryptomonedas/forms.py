@@ -7,5 +7,5 @@ class Moneda(FlaskForm):
     moneda_to = SelectField('To', choices=[('EUR', 'EUR - EURO'), ('BTC', 'BTC - Bitcoin'), ('ETH', 'ETH - Ether'), ('USDT', 'USDT - Tether'), ('BNB', 'BNB - Binance Coin'), ('XRP', 'XRP - Ripple'), ('ADA', 'ADA - Cardano'),('SOL', 'SOL -'), ('DOT', 'DOT -'), ('MATIC', 'MATIC -')])
     inputCantidad = FloatField('Cantidad', validators=[InputRequired(), NumberRange(min=0.00001, max=99999999), DataRequired()])
 
-    submitCalcular = SubmitField('Calculate' 'Calcular')
+    submitCalcular = SubmitField('Calculate' 'Calcular') #Agregado en styles posición del botón
     submitCompra = SubmitField('done_outline' 'Aceptar')

@@ -103,7 +103,7 @@ nav{
     color: orange;
 }
 
-#celda {
+.celda {
     width: auto;
     text-align: center;
 }

@@ -1,1 +1,1 @@
-from cryptomonedas import app
+from cryptomonedas import app #Importa app

@@ -3,26 +3,26 @@
 
 <h1>ESTADO DE LA INVERSIÓN</h1>
 {% for valor in inv %}
-<p>Invertido: {{ valor.Cantidad_from }}</p>
+<p>Invertido: {{ "%.8f" | format (valor.Cantidad_from) }}</p>
 {% endfor %}
 {% for valor in rec %}
-<p>Recuperado: {{ valor.Cantidad_to }}</p>
+<p>Recuperado: {{ "%.8f" | format (valor.Cantidad_to) }}</p>
 {% endfor %}
 
 
-<p>Valor de compra: {{ vComp }}</p>
+<p>Valor de compra: {{ "%.8f" | format (vComp) }}</p>
 
-<p>Valor actual: {{ vAct }}</p>
+<p>Valor actual: {{ "%.8f" | format (vAct) }}</p>
 
 {% if ganancia > 0 %}
 
-<p> Ganancia: <span id = ganancia>{{ ganancia }}</span></p>
+<p> Beneficio: <span id = ganancia>{{ "%.8f" | format (ganancia) }}</span></p>
 
 {% elif ganancia == 0 %}
-<p> Ganancia: <span id = igual>{{ ganancia }}</span></p>
+<p> Beneficio: <span id = igual>{{ "%.8f" | format (ganancia) }}</span></p>
 
 {% else %}
-<p> Ganancia: <span id = perdida>{{ ganancia }}</span></p>
+<p> Beneficio: <span id = perdida>{{ "%.8f" | format (ganancia) }}</span></p>
 
 
 {% endif %}

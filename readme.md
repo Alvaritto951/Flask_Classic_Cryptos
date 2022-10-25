@@ -12,6 +12,7 @@ Para consultar y recuperar el valor de las cryptomonedas, se utiliza la API de C
 
 ## Instalación 🤓💬
 
+- Realizar gitclone desde la dirección de GitHub: https://github.com/Alvaritto951/Flask_Classic_Cryptos
 - Obtener la apikey en https://www.coinapi.io/ 
 - Obtener una Secret Key en https://randomkeygen.com/ 
 - Hacer una copia del fichero `config_template.py`:

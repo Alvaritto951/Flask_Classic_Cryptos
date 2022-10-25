@@ -73,7 +73,7 @@ def traerTodasCartera(crypto):
     conn= sqlite3.connect(ORIGIN_DATA)
     cur = conn.cursor()
     for moneda in crypto:
-        consulta = f"SELECT ((SELECT (case when (SUM(Cantidad_to)) is null then 0 else SUM(Cantidad_to) end) as tot FROM movements WHERE Moneda_to = '{moneda}') - (SELECT (case when (SUM(Cantidad_from)) is null then 0 else SUM(Cantidad_from) end) as ee FROM movements WHERE Moneda_from = '{moneda}')) AS {moneda}"
+        consulta = f"SELECT ((SELECT (case when (SUM(Cantidad_to)) is null then 0 else SUM(Cantidad_to) end) as todas FROM movements WHERE Moneda_to = '{moneda}') - (SELECT (case when (SUM(Cantidad_from)) is null then 0 else SUM(Cantidad_from) end) as all FROM movements WHERE Moneda_from = '{moneda}')) AS {moneda}"
         cur.execute(consulta)
         fila =cur.fetchall() 
         cryptosMonedas[moneda] = fila[0][0]

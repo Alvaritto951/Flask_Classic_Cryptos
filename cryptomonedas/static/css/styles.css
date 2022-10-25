@@ -102,3 +102,8 @@ nav{
 #igual {
     color: orange;
 }
+
+#celda {
+    width: auto;
+    text-align: center;
+}

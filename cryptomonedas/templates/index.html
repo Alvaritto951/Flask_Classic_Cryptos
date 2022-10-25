@@ -6,13 +6,13 @@
 <table role="grid" id = "movimientos">
     <thead>
         <tr>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>Moneda_From</th>
-          <th>Cantidad_From</th>
-          <th>Moneda_To</th>
-          <th>Cantidad_to</th>
-          <th>Precio Unitario</th>
+          <th id="celda">Fecha</th>
+          <th id="celda">Hora</th>
+          <th id="celda">Moneda_From</th>
+          <th id="celda">Cantidad_From</th>
+          <th id="celda">Moneda_To</th>
+          <th id="celda">Cantidad_to</th>
+          <th id="celda">Precio Unitario</th>
         
     </tr>
   
@@ -25,7 +25,7 @@
           <td>{{ movement.Fecha }}</td>
           <td>{{ movement.Hora}}</td>
           <td>{{ movement.Moneda_from }}</td>
-          <td>{{ movement.Cantidad_from ~ " " ~ movement.Moneda_from }}</td>
+          <td>{{ "%.8f" | format (movement.Cantidad_from) ~ " " ~ movement.Moneda_from }}</td>
           <td>{{ movement.Moneda_to }}</td>
           <td>{{ "%.8f" | format (movement.Cantidad_to) ~ " " ~ movement.Moneda_to }}</td>
           <td>{{ "%.8f" | format (movement.PU) ~ " " ~ movement.Moneda_from}}</td>

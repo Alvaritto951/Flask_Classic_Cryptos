@@ -12,7 +12,7 @@ Para consultar y recuperar el valor de las cryptomonedas, se utiliza la API de C
 
 ## Instalación 🤓💬
 
-- Realizar gitclone desde la dirección de GitHub: https://github.com/Alvaritto951/Flask_Classic_Cryptos
+- Realizar gitclone desde la dirección de GitHub: https://github.com/Alvaritto951/Flask_Classic_Cryptos.git
 - Obtener la apikey en https://www.coinapi.io/ 
 - Obtener una Secret Key en https://randomkeygen.com/ 
 - Hacer una copia del fichero `config_template.py`:
@@ -46,4 +46,4 @@ flask run
 flask run -p 5001
 ```
 
-💱Y listo!! Ya tienes tus consultas, compras y tradeos de cryptomonedas!! 💱🔚
+💱¡¡Y listo!! Ya tienes tus consultas, compras y tradeos de cryptomonedas!! 💱🔚
